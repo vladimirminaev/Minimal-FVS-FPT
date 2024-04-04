@@ -1,0 +1,44 @@
+def dfvs(G1, W1, X1, k1, plot_solution = False):
+    
+    output = reductions(G1, W1, k1, plot_solution)
+    
+    if len(output) == 0:
+        #print('No-instance 1')
+        return []
+    
+    else:
+        G, W, X, k = output
+        H = [v for v in list(G.nodes) if v not in W]
+        X1.extend(X)
+        if k < 0:
+            #print('No-instance 2')
+            return []
+        elif len(list(G.nodes)) == 0 or len(list(G.edges)) == 0 :
+            return [G, W, X1, k]
+        else:
+            for node in H:
+                if G.subgraph(H).degree(node) <= 1:
+                    
+                    new_G = G.copy()
+                    new_G.remove_node(node)
+                    
+                    new_W = W.copy()
+                    new_W.append(node)
+                    
+                    new_X = X1.copy()
+                    new_X.append(node)
+
+                    #print('Excluding ', node,'from solution' )
+                    
+                    res = dfvs(G, new_W, X1, k, plot_solution)
+                    
+                    if len(res) != 0:
+                        return res
+                    else:
+                        #print('Including ', node,'into solution' )
+                        
+                        res = dfvs(new_G, W, new_X, k-1, plot_solution)
+                        if len(res) != 0:
+                            return res
+                        else:
+                            return []
