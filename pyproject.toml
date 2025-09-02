@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "minimal_fvs_fpt"
+version = "0.0.1"
+authors = [
+  { name="Vladimir Minaev", email="vladimir.minaev2002@gmail.com" },
+]
+description = "This package implements two FPT-algorithms for the Feedback Vertex Set problem."
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = { file = "LICENSE" }
+
+[project.urls]
+Homepage = "https://github.com/vladimirminaev/Minimal-FVS-FPT.git"
+Issues = "https://github.com/vladimirminaev/Minimal-FVS-FPT/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/minimal_fvs_fpt"]
