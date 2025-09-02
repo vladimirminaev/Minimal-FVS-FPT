@@ -94,3 +94,15 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contributing
 
 Contributions are welcome! If you find a bug or have a suggestion for improvement, please open an issue on the [GitHub Issues](https://github.com/vladimirminaev/Minimal-FVS-FPT/issues) page.
+
+## References
+
+The FPT algorithm implemented in this package is based on the iterative compression technique described by the following authors:
+
+* Jianer Chen
+* Fedor V. Fomin
+* Yang Liu
+* Songjian Lu
+* Yngve Villanger
+* **Paper:** ["Improved algorithms for feedback vertex set problems". In: Journal of
+Computer and System Sciences](https://www.sciencedirect.com/science/article/pii/S0022000008000500)

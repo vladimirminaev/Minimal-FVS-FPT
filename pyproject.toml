@@ -16,6 +16,9 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 license = { file = "LICENSE" }
+dependencies = [
+    "networkx"
+]
 
 [project.urls]
 Homepage = "https://github.com/vladimirminaev/Minimal-FVS-FPT.git"
