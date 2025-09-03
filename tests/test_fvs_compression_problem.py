@@ -1,6 +1,6 @@
 import unittest
 import networkx as nx
-from minimal_fvs_fpt.fvs_compression_problem import FVSCompressionProblem
+from minimal_fvs_fpt.fvs_compression_problem import solve_fvs_compression
 
 
 class TestFVSCompressionProblem(unittest.TestCase):
@@ -11,15 +11,14 @@ class TestFVSCompressionProblem(unittest.TestCase):
         Z = [1, 4]
         k = len(Z) - 1
 
-        problem = FVSCompressionProblem(G, Z)
-        problem.solve()
+        X = solve_fvs_compression(G, Z)
 
-        self.assertTrue(problem.admissible_instance)
+        self.assertIsNotNone(X)
 
         remaining_graph = G.copy()
-        remaining_graph.remove_nodes_from(problem.X)
+        remaining_graph.remove_nodes_from(X)
         self.assertTrue(
             len(remaining_graph.nodes) == 0 or nx.is_forest(remaining_graph)
         )
 
-        self.assertLessEqual(len(problem.X), k)
+        self.assertLessEqual(len(X), k)
