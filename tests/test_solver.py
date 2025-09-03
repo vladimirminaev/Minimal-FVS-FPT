@@ -1,6 +1,6 @@
 import unittest
 import networkx as nx
-from minimal_fvs_fpt.minimal_fvs_problem import find_minimal_fvs
+from minimal_fvs_fpt.solver import find_minimal_fvs
 
 
 class TestMinimalFVSProblem(unittest.TestCase):

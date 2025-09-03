@@ -1,5 +1,5 @@
 import networkx as nx
-from .fvs_compression_problem import solve_fvs_compression
+from .compression import solve_fvs_compression
 
 
 def find_minimal_fvs(graph):

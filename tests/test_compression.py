@@ -1,6 +1,6 @@
 import unittest
 import networkx as nx
-from minimal_fvs_fpt.fvs_compression_problem import solve_fvs_compression
+from minimal_fvs_fpt.compression import solve_fvs_compression
 
 
 class TestFVSCompressionProblem(unittest.TestCase):
