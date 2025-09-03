@@ -24,11 +24,11 @@ The core of the algorithm relies on two key components:
 
 ## How to Use
 
-Here is a simple example of how to use the `MinimalFVSProblem` solver to find the minimum feedback vertex set of a graph.
+Here is a simple example of how to use the `find_minimal_fvs` function to find the minimum feedback vertex set of a graph.
 
 ```python
 import networkx as nx
-from minimal_fvs_fpt import MinimalFVSProblem
+from minimal_fvs_fpt.solver import find_minimal_fvs
 
 # 1. Create a graph with a few cycles.
 # This graph is two triangles joined at vertex 3.
@@ -41,18 +41,15 @@ G.add_edges_from([
 # The minimal FVS for this graph is the single vertex {3}.
 
 # 2. Create a solver instance with the graph.
-problem = MinimalFVSProblem(G)
+X = find_minimal_fvs(G)
 
-# 3. Solve the problem.
-problem.solve()
-
-# 4. Print the results.
+# 3. Print the results.
 print(f"The graph has {G.number_of_nodes()} nodes and {G.number_of_edges()} edges.")
-print(f"The minimal Feedback Vertex Set is: {problem.X}")
+print(f"The minimal Feedback Vertex Set is: {X}")
 
-# 5. Verify the solution.
+# 4. Verify the solution.
 # Removing the FVS should result in an acyclic graph (a forest).
-remaining_nodes = [n for n in G.nodes() if n not in problem.X]
+remaining_nodes = [n for n in G.nodes() if n not in X]
 subgraph = G.subgraph(remaining_nodes)
 is_forest = nx.is_forest(subgraph)
 
@@ -66,8 +63,8 @@ print(f"Is the remaining graph a forest? {is_forest}")
 
 ## Algorithms and Components
 
--   `MinimalFVSProblem`: The main class that implements the iterative FPT algorithm.
--   `FVSCompressionProblem`: Solves the compression step of the FVS problem.
+-   `find_minimal_fvs`: The main function that implements the iterative FPT algorithm.
+-   `solve_fvs_compression`: Solves the compression step of the FVS problem.
 -   `DisjointFVSProblem`: Solves the problem of finding an FVS that is disjoint from a FVS `W`.
 
 ## Running Tests
