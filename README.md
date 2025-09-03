@@ -21,15 +21,6 @@ The core of the algorithm relies on two key components:
 -   Built on top of the popular `networkx` library for easy graph manipulation.
 -   Helper functions for generating test graphs with known FVS properties.
 
-## Installation
-
-You can install the package directly from PyPI:
-
-```bash
-pip install minimal_fvs_fpt
-```
-
-Ensure you have Python 3.11 or newer.
 
 ## How to Use
 
